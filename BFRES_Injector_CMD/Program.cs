@@ -63,13 +63,30 @@ namespace BFRES_Injector_CMD
                 vertUV.Name = "_u0";
                 vertUV.Data = meshes[0].uvs.ToArray();
                 vertUV.Format = Syroot.NintenTools.Bfres.GX2.GX2AttribFormat.Format_16_16_Single;
+				VertexBufferHelperAttrib vertUV1 = new VertexBufferHelperAttrib();
+				//Add UV Layer 1. Copies UVs from UV0 for now.
+				vertUV1.Name = "_u1";
+                vertUV1.Data = meshes[0].uvs.ToArray();
+                vertUV1.Format = Syroot.NintenTools.Bfres.GX2.GX2AttribFormat.Format_16_16_Single;
                 VertexBufferHelperAttrib vertNorm = new VertexBufferHelperAttrib();
                 vertNorm.Name = "_n0";
                 vertNorm.Data = meshes[0].norms.ToArray();
                 vertNorm.Format = Syroot.NintenTools.Bfres.GX2.GX2AttribFormat.Format_10_10_10_2_SNorm;
+				VertexBufferHelperAttrib vertWeight = new VertexBufferHelperAttrib();
+				//Adds weights. Becomes Zeroed
+                vertWeight.Name = "_w0";
+                vertWeight.Data = meshes[0].uvs.ToArray();
+                vertWeight.Format = Syroot.NintenTools.Bfres.GX2.GX2AttribFormat.Format_8_8_8_8_UNorm;
+				VertexBufferHelperAttrib vertIndex = new VertexBufferHelperAttrib();
+				//Adds Index attirbute. Becomes Zeroed
+			    vertIndex.Name = "_i0";
+                vertIndex.Data = meshes[0].uvs.ToArray();
+                vertIndex.Format = Syroot.NintenTools.Bfres.GX2.GX2AttribFormat.Format_8_8_8_8_UInt;
                 atrib.Add(vertPos);
-                atrib.Add(vertNorm);
                 atrib.Add(vertUV);
+				atrib.Add(vertUV1);
+				atrib.Add(vertWeight);
+				atrib.Add(vertIndex);
                 helper.Attributes = atrib;
                 input.VertexBuffers[0] = helper.ToVertexBuffer();
 
