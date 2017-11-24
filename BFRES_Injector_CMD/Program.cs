@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +50,7 @@ namespace BFRES_Injector_CMD
                 SubMesh Setup = new SubMesh();
                 Setup.Count = (uint)meshes[0].faces.Count;
                 Setup.Offset = 0;
-                for(int vvv = 0;vvv<4;vvv++) input.Shapes[0].Meshes[0].SubMeshes.Add(Setup);
+                for(int vvv = 0;vvv<1;vvv++) input.Shapes[0].Meshes[0].SubMeshes.Add(Setup);
                 //input.Shapes[0].Name = meshes[0].Name;
                 //Deal with Vertexes
                 VertexBufferHelper helper = new VertexBufferHelper(input.VertexBuffers[0], BO);
@@ -82,11 +82,18 @@ namespace BFRES_Injector_CMD
 			    vertIndex.Name = "_i0";
                 vertIndex.Data = meshes[0].uvs.ToArray();
                 vertIndex.Format = Syroot.NintenTools.Bfres.GX2.GX2AttribFormat.Format_8_8_8_8_UInt;
+                VertexBufferHelperAttrib vertTan = new VertexBufferHelperAttrib();
+				//Adds Tangent attirbute. Becomes Zeroed
+			    vertTan.Name = "_t0";
+                vertTan.Data = meshes[0].uvs.ToArray();
+                vertTan.Format = Syroot.NintenTools.Bfres.GX2.GX2AttribFormat.Format_8_8_8_8_SNorm;
                 atrib.Add(vertPos);
+				atrib.Add(vertNorm);
                 atrib.Add(vertUV);
 				atrib.Add(vertUV1);
 				atrib.Add(vertWeight);
 				atrib.Add(vertIndex);
+				atrib.Add(vertTan);
                 helper.Attributes = atrib;
                 input.VertexBuffers[0] = helper.ToVertexBuffer();
 
@@ -108,7 +115,7 @@ namespace BFRES_Injector_CMD
                 SubMesh Setup = new SubMesh();
                 Setup.Count = (uint)meshes[0].faces.Count;
                 Setup.Offset = 0;
-                for (int vvv = 0; vvv < 4; vvv++) input.Shapes[0].Meshes[0].SubMeshes.Add(Setup);
+                for (int vvv = 0; vvv < 1; vvv++) input.Shapes[0].Meshes[0].SubMeshes.Add(Setup);
                 //input.Shapes[0].Name = meshes[0].Name;
                 //Deal with Vertexes
                 VertexBufferHelper helper = new VertexBufferHelper(input.VertexBuffers[0], BO);
