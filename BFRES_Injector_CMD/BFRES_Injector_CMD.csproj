@@ -38,8 +38,9 @@
     <Reference Include="Syroot.Maths">
       <HintPath>..\..\..\..\..\..\..\normal\Syroot.Maths.dll</HintPath>
     </Reference>
-    <Reference Include="Syroot.NintenTools.Bfres">
-      <HintPath>..\..\..\..\..\..\..\normal\Syroot.NintenTools.Bfres.dll</HintPath>
+    <Reference Include="Syroot.NintenTools.Bfres, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NintenTools.Bfres-master\src\ConsoleApp1\bin\Debug\Syroot.NintenTools.Bfres.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

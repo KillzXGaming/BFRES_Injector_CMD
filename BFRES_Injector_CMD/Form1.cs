@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Syroot.NintenTools.Bfres;
+using Syroot.NintenTools.Bfres.GX2;
 
 namespace BFRES_Injector_CMD
 {
@@ -72,9 +73,12 @@ namespace BFRES_Injector_CMD
                     BFRES.MeshObj test = new BFRES.MeshObj();
 
                     test.ReadObj(obj.FileName);
-                    TargetBFRES.Models[0].Materials[0].RenderState.PolygonControl.CullBack = false;
-                    TargetBFRES.Models[0].Materials[0].RenderState.PolygonControl.CullFront = false;
-                    TargetBFRES.Models[0].Materials[0].RenderState.PolygonControl.PolygonModeEnabled = true;
+
+                    PolygonControl poly = new PolygonControl();
+                    poly.CullBack = true;
+                    poly.CullFront = true;
+                    poly.PolygonModeEnabled = true;
+                    TargetBFRES.Models[0].Materials[0].RenderState.PolygonControl = poly;
                     test.InjectMesh(TargetBFRES.Models[0], TargetBFRES.ByteOrder);
                     TargetBFRES.Name = "A_Cool_Mesh";
 
