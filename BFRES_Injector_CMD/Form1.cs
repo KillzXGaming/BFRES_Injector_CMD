@@ -38,6 +38,8 @@ namespace BFRES_Injector_CMD
                     comboBox1.Items.Clear();
                     comboBox2.Items.Clear();
 
+                    textBox1.Text = TargetBFRES.Name;
+
                     foreach (Model mdl in TargetBFRES.Models.Values)
                     {
                         comboBox1.Items.Add(mdl.Name);
@@ -80,7 +82,7 @@ namespace BFRES_Injector_CMD
                     poly.PolygonModeEnabled = true;
                     TargetBFRES.Models[0].Materials[0].RenderState.PolygonControl = poly;
                     test.InjectMesh(TargetBFRES.Models[0], TargetBFRES.ByteOrder);
-                    TargetBFRES.Name = "A_Cool_Mesh";
+
 
                     SaveFileDialog SvBFRES = new SaveFileDialog();
                     SvBFRES.Filter = "bfres Files (BFRES)|*.BFRES";
@@ -129,6 +131,16 @@ namespace BFRES_Injector_CMD
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            TargetBFRES.Name = textBox1.Text;
         }
     }
 }
